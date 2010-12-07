@@ -1,5 +1,5 @@
-/* ===================================================================== */
-/*
+/*!===================================================================== */
+/*!
  * This file is part of CARDAMOM (R) which is jointly developed by THALES
  * and SELEX SISTEMI INTEGRATI.
  * Copyright (C) SELEX SISTEMI INTEGRATI 2010. All rights reserved.
@@ -20,30 +20,34 @@
  */
 /* ===================================================================== */
 
-#include "nevot/NSystemClock.hpp"
-#include "nevot/NIClock.hpp"
-#include "nevot/NTimeUnavailable.hpp"
-#include "nevot/NUtil.hpp"
+#ifndef NEVOT_HPP
+#define NEVOT_HPP
 
-using namespace nevot;
-
-//-----------------------------------------------------------------------------
-
-nevot_std::shared_ptr<NClockProperty> 
-    NSystemClock::properties()
+namespace nevot 
 {
-    return nevot_std::shared_ptr<NClockProperty>();
-}
+    /*! \brief This class contains the controller methods for service 
+    *         initialization/finalization.
+    */
+    class NEVoT
+    {
+    public:
+        /*! \brief Initialize the service.
+        *
+        *  \note This method should be called just after the 
+        *        entry point of your application
+        */
+        static bool init (int argc, char **argv);
 
-//-----------------------------------------------------------------------------
 
-NTimeBase::NTimeT  NSystemClock::current_time()
-    throw( NTimeUnavailable )
-{
-    return util::compute_current_time();
-}
+        /*! \brief Finalize the service.
+        *
+        *  \note This method should be called just before the 
+        *        shutdown of your application.
+        *        If the "finish" is not called the resources 
+        *        are cleanly removed automatically by the framework.
+        */
+        static bool finish();
+    };
+} // namespace nevot
 
-//-----------------------------------------------------------------------------
-//  End Of File
-//-----------------------------------------------------------------------------
-
+#endif // NEVOT_HPP

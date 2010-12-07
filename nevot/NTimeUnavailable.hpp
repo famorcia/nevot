@@ -20,42 +20,32 @@
  */
 /* ===================================================================== */
 
-#ifndef NEVOT_SYSTEMCLOCK_HPP
-#define NEVOT_SYSTEMCLOCK_HPP
+#ifndef NEVOT_NTIMEUNAVAILABLE_HPP
+#define NEVOT_NTIMEUNAVAILABLE_HPP
 
-#include "nevot/NTimeT.hpp"
-#include "nevot/NClockProperty.hpp"
-#include "nevot/NTimeUnavailable.hpp"
-#include "nevot/shared_ptr.hpp"
+#include <exception>
 
 namespace nevot 
 {
+
     /*!
-    * @brief Interface Clock: this class provides the basic clock interface, a source of time readings
+    *  @brief Exception raised whenever the underlying clock fails, or is unable to provide
+    *         time that meets the required security assurance
     */
-    class NSystemClock
+    class NTimeUnavailable : public std::exception
     {
     public:
 
-        /*!
-        * @brief The known properties of the clock.
-        * @return reference to clock's properties.
-        * @exception no CORBA exception if error occurs in setting properties
-        */
-        static nevot_std::shared_ptr<NClockProperty> properties();
+        NTimeUnavailable();    //! Constructor
+        //~NTimeUnavailable();  //! Destructor
 
-        /*!
-        * @brief Provides a measure of the current time. The time unit is 100
-        * nanosecond i.e. 10e-7 seconds.
-        *
-        * @return TimeT with current time
-        * @exception no CORBA exception if error occurs in setting properties
-        * @exception nevot::TimeUnavailable if time is not available
-        *  with required security assurance.
-        */
-        static NTimeBase::NTimeT current_time() throw(NTimeUnavailable);
+        NTimeUnavailable(const NTimeUnavailable&);
+
+    private:
+        NTimeUnavailable& operator=(const NTimeUnavailable&);
 
     };
+
 } // namespace nevot
 
-#endif // NEVOT_SYSTEMCLOCK_HPP
+#endif // NEVOT_NTIMEUNAVAILABLE_HPP

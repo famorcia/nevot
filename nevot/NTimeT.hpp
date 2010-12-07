@@ -20,42 +20,21 @@
  */
 /* ===================================================================== */
 
-#ifndef NEVOT_SYSTEMCLOCK_HPP
-#define NEVOT_SYSTEMCLOCK_HPP
-
-#include "nevot/NTimeT.hpp"
-#include "nevot/NClockProperty.hpp"
-#include "nevot/NTimeUnavailable.hpp"
-#include "nevot/shared_ptr.hpp"
+#ifndef NEVOT_NTIMET_HPP
+#define NEVOT_NTIMET_HPP
 
 namespace nevot 
 {
-    /*!
-    * @brief Interface Clock: this class provides the basic clock interface, a source of time readings
-    */
-    class NSystemClock
+    namespace NTimeBase
     {
-    public:
 
-        /*!
-        * @brief The known properties of the clock.
-        * @return reference to clock's properties.
-        * @exception no CORBA exception if error occurs in setting properties
-        */
-        static nevot_std::shared_ptr<NClockProperty> properties();
+        /*! 
+         *  @brief TimeT represents a single time value, which is 64 bits in size and holds 
+         *         the number of 100 nanoseconds that have passed since the base time.
+         */
+        typedef unsigned long long NTimeT;
 
-        /*!
-        * @brief Provides a measure of the current time. The time unit is 100
-        * nanosecond i.e. 10e-7 seconds.
-        *
-        * @return TimeT with current time
-        * @exception no CORBA exception if error occurs in setting properties
-        * @exception nevot::TimeUnavailable if time is not available
-        *  with required security assurance.
-        */
-        static NTimeBase::NTimeT current_time() throw(NTimeUnavailable);
-
-    };
+    } // namespace NTimeBase
 } // namespace nevot
 
-#endif // NEVOT_SYSTEMCLOCK_HPP
+#endif

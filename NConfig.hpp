@@ -20,42 +20,47 @@
  */
 /* ===================================================================== */
 
-#ifndef NEVOT_SYSTEMCLOCK_HPP
-#define NEVOT_SYSTEMCLOCK_HPP
+#ifndef NEVOT_CONFIG_HPP
+#define NEVOT_CONFIG_HPP
 
-#include "nevot/NTimeT.hpp"
-#include "nevot/NClockProperty.hpp"
-#include "nevot/NTimeUnavailable.hpp"
-#include "nevot/shared_ptr.hpp"
+#include "nevot/NTimeBase.hpp"
 
 namespace nevot 
 {
+    extern const char* NEVOTSERVICE_LOGGER;
+    extern const unsigned int DECIMAL_PRECISION;
+    extern const unsigned long RESOLUTION;
+
+#ifdef  WIN32
+
+# pragma warning (disable: 4786 4231)
+
+# define FIX_ULL(a) a
+
+#else
+
+# define FIX_ULL(a) a ## ULL
+
+#endif
+
     /*!
-    * @brief Interface Clock: this class provides the basic clock interface, a source of time readings
+    *  @brief  Base of time for clock computation.
+    *
+    * Portable constant to use like base time.
     */
-    class NSystemClock
-    {
-    public:
+    static const NTimeBase::NTimeT TIME_BASE =
+#ifdef  WIN32
+        //  To construct the current gregorian time from Windows time we need to add the
+        //  difference of days between 15th October 1582  and 1th Jan 1601 .
+        (NTimeBase::NTimeT)FIX_ULL(0x146BF33E42C000);
+#else
+        //  To construct the current gregorian time from UNIX time we need to add the
+        //  difference of days between 15th October 1582 and 1st Jan 1970.
+        //  This difference is 141427 days (0x2D8539C80 secs, 0x1B21DD213814000 100*nsec).
+        (NTimeBase::TimeT)FIX_ULL(0x1B21DD213814000);
+#endif
 
-        /*!
-        * @brief The known properties of the clock.
-        * @return reference to clock's properties.
-        * @exception no CORBA exception if error occurs in setting properties
-        */
-        static nevot_std::shared_ptr<NClockProperty> properties();
 
-        /*!
-        * @brief Provides a measure of the current time. The time unit is 100
-        * nanosecond i.e. 10e-7 seconds.
-        *
-        * @return TimeT with current time
-        * @exception no CORBA exception if error occurs in setting properties
-        * @exception nevot::TimeUnavailable if time is not available
-        *  with required security assurance.
-        */
-        static NTimeBase::NTimeT current_time() throw(NTimeUnavailable);
-
-    };
 } // namespace nevot
 
-#endif // NEVOT_SYSTEMCLOCK_HPP
+#endif // NEVOT_CONFIG_HPP

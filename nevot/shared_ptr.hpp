@@ -20,30 +20,11 @@
  */
 /* ===================================================================== */
 
-#include "nevot/NSystemClock.hpp"
-#include "nevot/NIClock.hpp"
-#include "nevot/NTimeUnavailable.hpp"
-#include "nevot/NUtil.hpp"
+#ifndef SHARED_PTR_STD_HEADER
+#define SHARED_PTR_STD_HEADER
 
-using namespace nevot;
+#include <boost/shared_ptr.hpp>
 
-//-----------------------------------------------------------------------------
+namespace nevot_std=boost;
 
-nevot_std::shared_ptr<NClockProperty> 
-    NSystemClock::properties()
-{
-    return nevot_std::shared_ptr<NClockProperty>();
-}
-
-//-----------------------------------------------------------------------------
-
-NTimeBase::NTimeT  NSystemClock::current_time()
-    throw( NTimeUnavailable )
-{
-    return util::compute_current_time();
-}
-
-//-----------------------------------------------------------------------------
-//  End Of File
-//-----------------------------------------------------------------------------
-
+#endif // SHARED_PTR_STD_HEADER

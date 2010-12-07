@@ -1,5 +1,5 @@
-/* ===================================================================== */
-/*
+/*!===================================================================== */
+/*!
  * This file is part of CARDAMOM (R) which is jointly developed by THALES
  * and SELEX SISTEMI INTEGRATI.
  * Copyright (C) SELEX SISTEMI INTEGRATI 2010. All rights reserved.
@@ -20,30 +20,34 @@
  */
 /* ===================================================================== */
 
-#include "nevot/NSystemClock.hpp"
-#include "nevot/NIClock.hpp"
-#include "nevot/NTimeUnavailable.hpp"
-#include "nevot/NUtil.hpp"
+#include "NConfig.hpp"
 
 using namespace nevot;
 
-//-----------------------------------------------------------------------------
+//-------------------------------------------------------------------------///
 
-nevot_std::shared_ptr<NClockProperty> 
-    NSystemClock::properties()
-{
-    return nevot_std::shared_ptr<NClockProperty>();
-}
+extern const unsigned int 
+nevot::DECIMAL_PRECISION = 10000;
 
-//-----------------------------------------------------------------------------
+//-------------------------------------------------------------------------///
 
-NTimeBase::NTimeT  NSystemClock::current_time()
-    throw( NTimeUnavailable )
-{
-    return util::compute_current_time();
-}
+extern const unsigned long 
+nevot::RESOLUTION = 1000;
 
 //-----------------------------------------------------------------------------
-//  End Of File
-//-----------------------------------------------------------------------------
+extern const char* nevot::NEVOTSERVICE_LOGGER = "CDMW.FDS.NEVOT";
 
+
+/*
+extern const NTimeBase::TimeT TIME_BASE =
+#ifdef  WIN32
+//  To construct the current gregorian time from Windows time we need to add the
+//  difference of days between 15th October 1582  and 1th Jan 1601 .
+ (NTimeBase::TimeT)FIX_ULL(0x146BF33E42C000);
+#else
+//  To construct the current gregorian time from UNIX time we need to add the
+//  difference of days between 15th October 1582 and 1st Jan 1970.
+//  This difference is 141427 days (0x2D8539C80 secs, 0x1B21DD213814000 100*nsec).
+ (NTimeBase::TimeT)FIX_ULL(0x1B21DD213814000);
+#endif
+*/
