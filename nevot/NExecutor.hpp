@@ -27,21 +27,17 @@
 #include "nevot/NPeriodic.hpp"
 #include "nevot/NController.hpp"
 
-#include <string>
-#include <exception>
-#include <vector>
-
 namespace nevot 
 {
     namespace NPeriodicExecution
     {
-
         /*!
-        * @brief Interface Executor: this class provides factory clock for periodic execution
-        */
+         * @brief Executor is a factory for controller.
+         */
         class NExecutor : public virtual NIClock
         {
         public:
+
             virtual NController_sptr enable_periodic_execution(const nevot_std::shared_ptr<NPeriodic>& on );
 
         private:
