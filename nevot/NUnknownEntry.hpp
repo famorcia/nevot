@@ -1,7 +1,8 @@
-/* ========================================================================== *
+/* ===================================================================== */
+/*
  * This file is part of CARDAMOM (R) which is jointly developed by THALES
  * and SELEX SISTEMI INTEGRATI.
- * Copyright (C) SELEX SISTEMI INTEGRATI 2004-2010. All rights reserved.
+ * Copyright (C) SELEX SISTEMI INTEGRATI 2010. All rights reserved.
  *
  * CARDAMOM is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Library General Public License as published
@@ -16,7 +17,8 @@
  * You should have received a copy of the GNU Library General Public
  * License along with CARDAMOM; see the file COPYING. If not, write to the
  * Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
- * ========================================================================= */
+ */
+/* ===================================================================== */
 
 #ifndef NEVOT_NUNKNOWNENTRY_HPP
 #define NEVOT_NUNKNOWNENTRY_HPP
