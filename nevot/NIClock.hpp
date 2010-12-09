@@ -53,7 +53,7 @@ namespace nevot
     };
 
     //! smart pointer for clock objects
-    typedef std::shared_ptr<NIClock>    NClock_sptr;
+    typedef nevot_std::shared_ptr<NIClock>    NClock_sptr;
 
 } // namespace nevot
 

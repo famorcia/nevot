@@ -29,9 +29,9 @@ namespace nevot
 {
 
     /*!
-    *  @brief Exception that indicates that the catalog contains no entry with
-    *         the given name.
-    */
+     *  @brief Exception that indicates that the catalog contains no entry with
+     *         the given name.
+     */
     class NUnknownEntry : public std::exception
     {
     public:

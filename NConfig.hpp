@@ -57,10 +57,11 @@ namespace nevot
         //  To construct the current gregorian time from UNIX time we need to add the
         //  difference of days between 15th October 1582 and 1st Jan 1970.
         //  This difference is 141427 days (0x2D8539C80 secs, 0x1B21DD213814000 100*nsec).
-        (NTimeBase::TimeT)FIX_ULL(0x1B21DD213814000);
+        (NTimeBase::NTimeT)FIX_ULL(0x1B21DD213814000);
 #endif
 
 
 } // namespace nevot
 
 #endif // NEVOT_CONFIG_HPP
+

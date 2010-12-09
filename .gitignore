@@ -3,4 +3,6 @@ bin/
 cdmwcommonsvcsnevot.mpc
 nevot/tmp/
 tmp/
+*~
+build/
 
