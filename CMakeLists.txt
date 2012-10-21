@@ -10,5 +10,6 @@ add_library(nevot
     src/NConfig.hpp 
     src/NExecutor.cpp 
     src/NSystemClock.cpp 
+    src/NEVoT.cpp
     src/NUtil.cpp)
 
