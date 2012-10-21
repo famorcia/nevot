@@ -2,7 +2,7 @@
 /*
  * This file is part of CARDAMOM (R) which is jointly developed by THALES
  * and SELEX SISTEMI INTEGRATI.
- * Copyright (C) SELEX SISTEMI INTEGRATI 2010. All rights reserved.
+ * Copyright (C) SELEX SISTEMI INTEGRATI 2010-2012. All rights reserved.
  *
  * CARDAMOM is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Library General Public License as published
@@ -33,6 +33,10 @@ namespace nevot
     class NIClock 
     {
     public:
+    	virtual ~NIClock(){
+
+    	}
+
         /*!
         * @brief The known properties of the clock.
         * @return reference to clock's properties.

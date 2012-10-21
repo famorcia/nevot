@@ -2,7 +2,7 @@
 /*
  * This file is part of CARDAMOM (R) which is jointly developed by THALES
  * and SELEX SISTEMI INTEGRATI.
- * Copyright (C) SELEX SISTEMI INTEGRATI 2010. All rights reserved.
+ * Copyright (C) SELEX SISTEMI INTEGRATI 2010-2012. All rights reserved.
  *
  * CARDAMOM is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Library General Public License as published
@@ -26,16 +26,16 @@ using namespace nevot;
 
 //-------------------------------------------------------------------------///
 
-extern const unsigned int 
+const unsigned int
 nevot::DECIMAL_PRECISION = 10000;
 
 //-------------------------------------------------------------------------///
 
-extern const unsigned long 
+const unsigned long
 nevot::RESOLUTION = 1000;
 
 //-----------------------------------------------------------------------------
-extern const char* nevot::NEVOTSERVICE_LOGGER = "CDMW.FDS.NEVOT";
+const char* nevot::NEVOTSERVICE_LOGGER = "CDMW.FDS.NEVOT";
 
 
 /*

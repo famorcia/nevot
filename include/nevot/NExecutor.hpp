@@ -2,7 +2,7 @@
 /*
  * This file is part of CARDAMOM (R) which is jointly developed by THALES
  * and SELEX SISTEMI INTEGRATI.
- * Copyright (C) SELEX SISTEMI INTEGRATI 2010. All rights reserved.
+ * Copyright (C) SELEX SISTEMI INTEGRATI 2010-2012. All rights reserved.
  *
  * CARDAMOM is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Library General Public License as published
@@ -39,6 +39,9 @@ namespace nevot
         public:
 
             virtual NController_sptr enable_periodic_execution(const nevot_std::shared_ptr<NPeriodic>& on );
+
+            virtual	~NExecutor(){
+            }
 
         private:
             class Impl;

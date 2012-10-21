@@ -2,7 +2,7 @@
 /*
  * This file is part of CARDAMOM (R) which is jointly developed by THALES
  * and SELEX SISTEMI INTEGRATI.
- * Copyright (C) SELEX SISTEMI INTEGRATI 2010. All rights reserved.
+ * Copyright (C) SELEX SISTEMI INTEGRATI 2010-2012. All rights reserved.
  * 
  * CARDAMOM is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Library General Public License as published
@@ -74,7 +74,7 @@ namespace nevot
         *         of a more specific selection mechanism, as for example by a 
         *         specific property.
         *
-        *  @deprecated This acccessor break the insulation will be removed 
+        *  @deprecated This function method break the insulation will be removed
         *
         *  @see NClockCatalog::begin(), NClockCatalog::end() 
         */
