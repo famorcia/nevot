@@ -5,4 +5,7 @@ nevot/tmp/
 tmp/
 *~
 build/
-
+.autotools
+.cproject
+.project
+build
